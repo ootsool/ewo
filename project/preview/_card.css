@@ -1,0 +1,71 @@
+/* Shared base styles for design system preview cards.
+ * Each card includes colors_and_type.css for tokens, then this for layout. */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  background-color: var(--ewo-terracotta);
+  background-image: var(--paper-texture);
+  background-size: 1400px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: var(--fg);
+}
+
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card.compact { padding: 18px 24px; gap: 12px; }
+
+.card.cream {
+  background-color: var(--ewo-cream);
+  background-image: var(--paper-texture);
+  background-size: 1400px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: var(--ewo-navy);
+}
+
+.row { display: flex; align-items: center; gap: 16px; }
+.row.wrap { flex-wrap: wrap; }
+.row.spread { justify-content: space-between; }
+
+.col { display: flex; flex-direction: column; gap: 6px; }
+
+.label {
+  font-family: var(--font-latin-text);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.value {
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 130px;
+  height: 96px;
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-paper);
+  color: var(--ewo-cream);
+}
+.swatch.dark   { color: var(--ewo-cream); }
+.swatch.light  { color: var(--ewo-navy-deep); }
+.swatch .name  { font-family: var(--font-latin-text); font-weight: 600; font-size: 13px; }
+.swatch .hex   { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; opacity: 0.8; margin-top: 2px; }

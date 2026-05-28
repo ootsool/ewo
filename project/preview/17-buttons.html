@@ -1,0 +1,44 @@
+<!doctype html><html lang="he" dir="rtl"><head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 28px;
+    border-radius: 0;             /* squared — brand default */
+    border: none;
+    font-family: var(--font-hebrew-text);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity var(--dur-fast) var(--ease-quiet);
+  }
+  .btn:hover  { opacity: 0.78; }
+  .btn:active { opacity: 0.6; }
+  .btn-primary   { background: var(--ewo-navy); color: var(--ewo-cream); }
+  .btn-secondary { background: var(--ewo-cream); color: var(--ewo-navy); }
+  .btn-ghost     { background: transparent; color: var(--ewo-cream); box-shadow: inset 0 0 0 1.5px var(--ewo-cream); }
+  .btn .arrow { font-size: 18px; line-height: 1; }
+</style>
+</head><body>
+<div class="card">
+  <div class="col" style="gap:6px; direction:ltr;">
+    <div class="label">Buttons · squared by default, single weight, no scale on press</div>
+    <div style="font-family:var(--font-latin-text); font-size:12px; line-height:1.45; color:var(--ewo-cream); opacity:.85;">
+      Match the printed-paper aesthetic — sharp 0px corners. Pill buttons (<code style="font-family:'JetBrains Mono',monospace; font-size:11px;">--r-pill</code>) remain available for clearly-rounded affordances like compact tags or icon-only triggers, but the default cuts square.
+    </div>
+  </div>
+  <div class="row" style="gap:12px; flex-wrap:wrap;">
+    <button class="btn btn-primary">הזמנת כרטיסים <span class="arrow">←</span></button>
+    <button class="btn btn-secondary">קרא עוד</button>
+    <button class="btn btn-ghost">שמור לעונה שלי</button>
+  </div>
+  <div class="row" style="gap:14px; direction:ltr;">
+    <div class="value" style="opacity:.6;">primary · navy</div>
+    <div class="value" style="opacity:.6;">· secondary · cream</div>
+    <div class="value" style="opacity:.6;">· ghost · cream outline</div>
+  </div>
+</div>
+</body></html>

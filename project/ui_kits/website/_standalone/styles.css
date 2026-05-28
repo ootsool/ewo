@@ -1,0 +1,477 @@
+/* Website UI kit — component styles. Tokens come from ../../colors_and_type.css. */
+
+/* ───────── Header ───────── */
+.ewo-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--ewo-terracotta);
+  background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat;
+  background-blend-mode: multiply;
+  border-bottom: 1px solid color-mix(in srgb, var(--ewo-navy) 14%, transparent);
+}
+.ewo-header-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 16px 32px;
+  display: flex; align-items: center; gap: 28px;
+  position: relative;
+}
+.ewo-header-mark {
+  border: none; padding-bottom: 0; line-height: 0;
+  /* Centered horizontally; vertically biased downward so the lower
+   * portion of the badge dips past the header's bottom edge, the way
+   * brand stamps sit on event collateral. */
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -25%);
+  z-index: 2;
+}
+.ewo-header-mark img { display: block; width: 84px; height: 84px; }
+.ewo-nav { display: flex; gap: 22px; flex: 1; }
+.ewo-nav a {
+  font-family: var(--font-hebrew-text);
+  font-size: 15px; font-weight: 500;
+  color: var(--ewo-cream);
+  text-decoration: none; border: none; padding-bottom: 0;
+  opacity: .88;
+  transition: opacity var(--dur-fast) var(--ease-quiet);
+}
+.ewo-nav a:hover { opacity: 1; }
+
+.ewo-header-actions { display: flex; align-items: center; gap: 16px; }
+.ewo-season-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  color: var(--ewo-cream);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ewo-cream) 50%, transparent);
+  border: none;
+  font-family: var(--font-hebrew-text);
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.ewo-season-pill-label { opacity: .7; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-family: var(--font-latin-text); }
+.ewo-season-pill-value { font-weight: 600; }
+.ewo-season-pill-arrow { font-size: 10px; opacity: .7; }
+
+.ewo-lang { display: inline-flex; gap: 6px; color: var(--ewo-cream); font-family: var(--font-latin-text); font-size: 13px; font-weight: 500; }
+.ewo-lang-active { opacity: 1; }
+.ewo-lang-sep { opacity: .35; }
+.ewo-lang-link { opacity: .55; text-decoration: none; border: none; padding-bottom: 0; }
+.ewo-lang-link:hover { opacity: .85; }
+
+/* ───────── Buttons (shared) ───────── */
+.ewo-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px;
+  border-radius: 0;             /* squared — printed-paper feel */
+  font-family: var(--font-hebrew-text);
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease-quiet);
+}
+.ewo-btn:hover { opacity: .78; }
+.ewo-btn:active { opacity: .6; }
+.ewo-btn-primary    { background: var(--ewo-navy);  color: var(--ewo-cream);     border-bottom: 0; }
+.ewo-btn-secondary  { background: var(--ewo-cream); color: var(--ewo-navy);      border-bottom: 0; }
+.ewo-btn-ghost      { background: transparent;       color: var(--ewo-cream); box-shadow: inset 0 0 0 1.5px var(--ewo-cream); border-bottom: 0; }
+.ewo-btn-ghost-dark { background: transparent;       color: var(--ewo-navy);  box-shadow: inset 0 0 0 1.5px var(--ewo-navy);  border-bottom: 0; }
+.ewo-arrow { font-size: 16px; line-height: 1; }
+
+/* ───────── Hero — title + maestro feature ───────── */
+.ewo-hero {
+  position: relative;
+  padding: 56px 32px 64px;
+  color: var(--ewo-cream);
+  overflow: hidden;
+  background-color: var(--ewo-terracotta);
+}
+/* Paper grain layer — kept in its own stacking layer with a contrast bump
+ * so the otherwise-subtle fibers in the scan read clearly through the
+ * terracotta. Centered horizontally so the tile seam is pushed out of
+ * the central content area on wide viewports. */
+.ewo-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--paper-texture);
+  background-size: 1000px auto;
+  background-position: center top;
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  filter: contrast(1.4) brightness(0.92);
+  pointer-events: none;
+  z-index: 0;
+}
+.ewo-hero-inner {
+  max-width: 1280px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+/* Top row: tag+title share a vertical center with the figure so the
+ * portrait sits centered against the right-hand text block. */
+.ewo-hero-stage {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.ewo-hero-headline { display: flex; flex-direction: column; gap: 22px; }
+.ewo-hero-tag {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-hebrew-text); font-size: 14px; font-weight: 500;
+  letter-spacing: .04em;
+  padding: 8px 16px;
+  background: color-mix(in srgb, var(--ewo-navy) 100%, transparent);
+  color: var(--ewo-cream);
+  align-self: flex-start;
+}
+.ewo-hero-tag-mark { font-size: 10px; color: var(--ewo-peach); }
+.ewo-hero-tag-year { opacity: .8; font-family: var(--font-latin-text); letter-spacing: .12em; font-size: 12px; }
+
+.ewo-hero-title {
+  font-family: var(--font-hebrew-display); font-weight: 900;
+  font-size: clamp(64px, 7.5vw, 116px); line-height: .96;
+  margin: 0; letter-spacing: -.01em;
+  color: var(--ewo-cream);
+}
+.ewo-hero-title-row2 { display: block; }
+.ewo-hero-title-amp { color: var(--ewo-peach); font-weight: 400; padding: 0 6px; font-style: normal; }
+
+.ewo-hero-lede {
+  font-family: var(--font-hebrew-text); font-size: 19px; line-height: 1.55;
+  margin: 0; max-width: 480px; opacity: .92;
+}
+.ewo-hero-meta {
+  font-family: var(--font-hebrew-text); font-size: 13px; letter-spacing: .02em;
+  text-transform: none; opacity: .85;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--ewo-cream) 25%, transparent);
+  width: fit-content; padding-inline: 0;
+}
+.ewo-hero-meta-name { font-weight: 700; margin-inline-start: 6px; }
+
+.ewo-hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; }
+
+.ewo-hero-portrait {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  max-height: 780px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  overflow: visible;
+}
+/* All three layers share the same vertical center axis (left:50%, translateX(-50%))
+ * so the disc, wings, and portrait stack perfectly centered — matches the
+ * symmetric anatomy of every brand poster. */
+.ewo-hero-portrait-disc {
+  position: absolute;
+  left: 50%;
+  bottom: 22%;          /* sits behind the head/torso, above the wing band */
+  width: 56%;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  background: var(--ewo-navy);
+  border-radius: 50%;
+  z-index: 0;
+}
+.ewo-hero-portrait-wings {
+  position: absolute;
+  left: 50%;
+  bottom: 0;            /* lock the wing-band base to the figure baseline */
+  width: 118%;
+  height: auto;
+  transform: translateX(-50%);
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+.ewo-hero-portrait-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  z-index: 2;
+}
+.ewo-hero-portrait-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(31, 63, 106, 0.82) 0%, rgba(31, 63, 106, 0) 100%);
+  color: var(--ewo-cream);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ewo-hero-portrait-cap-eyebrow { font-family: var(--font-latin-text); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.ewo-hero-portrait-cap-title   { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 22px; line-height: 1.1; }
+
+/* ───────── Section heads ───────── */
+.ewo-section { max-width: 1280px; margin: 0 auto; padding: 96px 32px; }
+.ewo-section-head { text-align: center; margin-bottom: 56px; }
+.ewo-section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-latin-text); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  opacity: .7; margin-bottom: 14px;
+}
+.ewo-section-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin: 0; }
+
+/* ───────── Featured concert ───────── */
+.ewo-featured {
+  background: var(--ewo-cream);
+  background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: var(--ewo-navy-deep);
+}
+.ewo-featured-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 96px 32px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: center;
+}
+.ewo-featured-side { display: flex; flex-direction: column; gap: 18px; }
+.ewo-featured-eyebrow { font-family: var(--font-latin-text); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ewo-terracotta-deep); font-weight: 600; }
+.ewo-featured-title  { font-family: var(--font-hebrew-display); font-weight: 900; font-size: clamp(40px, 4.5vw, 60px); line-height: 1.05; margin: 0; color: var(--ewo-navy-deep); }
+.ewo-featured-side .ewo-ornament { margin: 0; color: var(--ewo-terracotta-deep); opacity: .9; }
+.ewo-featured-body   { font-family: var(--font-hebrew-text); font-size: 17px; line-height: 1.65; margin: 0; }
+.ewo-featured-meta   { font-family: var(--font-hebrew-text); font-size: 14px; opacity: .8; display: flex; gap: 8px; flex-wrap: wrap; }
+.ewo-featured-cta    { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+.ewo-featured-image  { margin: 0; aspect-ratio: 3 / 4; max-height: 640px; overflow: hidden; box-shadow: var(--shadow-card); }
+.ewo-featured-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ───────── Season grid (2x2 posters) ───────── */
+.ewo-season-grid-section { background: var(--ewo-terracotta); background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat; background-blend-mode: multiply; color: var(--ewo-cream); max-width: none; padding: 96px 32px; }
+.ewo-season-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; max-width: 1080px; margin: 0 auto; }
+
+.ewo-poster {
+  text-decoration: none; color: inherit; border: none;
+  display: flex; flex-direction: column;
+  background: var(--ewo-cream);
+  background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat;
+  background-blend-mode: multiply;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-paper);
+  color: var(--ewo-navy-deep);
+  transition: transform var(--dur-base) var(--ease-quiet), box-shadow var(--dur-base) var(--ease-quiet);
+}
+.ewo-poster:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.ewo-poster-image { aspect-ratio: 3 / 4; overflow: hidden; }
+.ewo-poster-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ewo-poster-meta { display: flex; gap: 18px; padding: 22px 24px; align-items: flex-start; }
+.ewo-poster-date { text-align: center; line-height: 1; flex-shrink: 0; padding-top: 4px; }
+.ewo-poster-day { display: block; font-family: var(--font-hebrew-display); font-weight: 900; font-size: 44px; color: var(--ewo-terracotta-deep); }
+.ewo-poster-mo  { display: block; font-family: var(--font-latin-text); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; opacity: .7; }
+.ewo-poster-body { flex: 1; }
+.ewo-poster-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 24px; line-height: 1.1; margin: 0 0 6px; }
+.ewo-poster-artist { font-family: var(--font-hebrew-text); font-size: 15px; font-weight: 500; opacity: .85; }
+.ewo-poster-venue  { font-family: var(--font-hebrew-text); font-size: 13px; opacity: .6; margin-top: 4px; }
+
+/* ───────── Concert list ───────── */
+.ewo-concert-list-section { background: var(--ewo-cream); background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat; background-blend-mode: multiply; color: var(--ewo-navy-deep); max-width: none; padding: 96px 32px; }
+.ewo-concert-list { display: flex; flex-direction: column; gap: 12px; max-width: 920px; margin: 0 auto; }
+.ewo-concert-card {
+  display: flex; align-items: center; gap: 22px;
+  padding: 22px 26px;
+  background: var(--ewo-cream-soft);
+  border: 1px solid color-mix(in srgb, var(--ewo-navy) 8%, transparent);
+  border-radius: 0;
+  color: var(--ewo-navy-deep);
+  transition: background var(--dur-fast) var(--ease-quiet);
+}
+.ewo-concert-card:hover { background: var(--ewo-cream); border-color: color-mix(in srgb, var(--ewo-navy) 16%, transparent); }
+.ewo-cc-date { text-align: center; line-height: 1; flex-shrink: 0; }
+.ewo-cc-day { display: block; font-family: var(--font-hebrew-display); font-weight: 900; font-size: 42px; color: var(--ewo-terracotta-deep); }
+.ewo-cc-mo  { display: block; font-family: var(--font-latin-text); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; opacity: .7; }
+.ewo-cc-yr  { display: block; font-family: var(--font-latin-text); font-size: 10px; letter-spacing: .14em; opacity: .55; }
+.ewo-cc-rule { width: 1px; align-self: stretch; background: color-mix(in srgb, var(--ewo-navy) 18%, transparent); }
+.ewo-cc-body { flex: 1; }
+.ewo-cc-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 22px; line-height: 1.15; margin: 0 0 4px; }
+.ewo-cc-meta { font-family: var(--font-hebrew-text); font-size: 14px; opacity: .72; display: flex; gap: 8px; flex-wrap: wrap; }
+.ewo-cc-dot { opacity: .5; }
+
+/* ───────── About strip ───────── */
+.ewo-about {
+  background: var(--ewo-navy-deep);
+  color: var(--ewo-cream);
+  padding: 96px 32px;
+}
+.ewo-about-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+.ewo-about-eyebrow { font-family: var(--font-latin-text); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .55; margin-bottom: 24px; display: block; }
+.ewo-about-quote { font-family: var(--font-hebrew-display); font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.3; margin: 0 0 36px; text-wrap: balance; }
+.ewo-about-source { font-family: var(--font-hebrew-text); font-size: 14px; opacity: .65; }
+
+/* ───────── Video reel ───────── */
+.ewo-vidreel-section { background: var(--ewo-cream); background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat; background-blend-mode: multiply; color: var(--ewo-navy-deep); max-width: none; padding: 96px 32px; }
+.ewo-vidreel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin: 0 auto 40px; }
+.ewo-vid { text-decoration: none; color: inherit; border: none; display: flex; flex-direction: column; gap: 14px; }
+.ewo-vid-thumb {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  background: var(--ewo-navy-deep);
+}
+.ewo-vid-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--dur-base) var(--ease-quiet); }
+.ewo-vid:hover .ewo-vid-thumb img { transform: scale(1.04); }
+.ewo-vid-play {
+  position: absolute; inset: 0; margin: auto;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--ewo-cream); color: var(--ewo-navy-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; padding-left: 4px;
+  box-shadow: var(--shadow-card);
+}
+.ewo-vid-meta { display: flex; flex-direction: column; gap: 2px; }
+.ewo-vid-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 18px; line-height: 1.2; }
+.ewo-vid-sub   { font-family: var(--font-hebrew-text); font-size: 13px; opacity: .65; }
+.ewo-vidreel-cta { display: flex; justify-content: center; }
+
+/* ───────── Digital callout ───────── */
+.ewo-digital {
+  background: var(--ewo-navy);
+  color: var(--ewo-cream);
+  padding: 80px 32px;
+  text-align: center;
+}
+.ewo-digital-inner { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.ewo-digital-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: clamp(32px, 4vw, 48px); margin: 0; line-height: 1.05; }
+.ewo-digital-body  { font-family: var(--font-hebrew-text); font-size: 17px; line-height: 1.55; opacity: .9; margin: 0; }
+.ewo-digital-row   { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+.ewo-digital-chip  {
+  font-family: var(--font-hebrew-text); font-size: 14px; font-weight: 500;
+  padding: 10px 22px; background: transparent; color: var(--ewo-cream);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ewo-cream) 70%, transparent);
+  text-decoration: none; border: none; transition: background var(--dur-fast) var(--ease-quiet);
+}
+.ewo-digital-chip:hover { background: color-mix(in srgb, var(--ewo-cream) 12%, transparent); }
+
+/* ───────── Instagram feed ───────── */
+.ewo-ig {
+  max-width: 1280px; margin: 0 auto; padding: 96px 32px;
+}
+.ewo-ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ewo-ig-tile {
+  position: relative; aspect-ratio: 1 / 1; overflow: hidden;
+  display: block; text-decoration: none; border: none;
+}
+.ewo-ig-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--dur-base) var(--ease-quiet); }
+.ewo-ig-tile:hover img { transform: scale(1.05); }
+.ewo-ig-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(31, 63, 106, 0.82) 0%, rgba(31, 63, 106, 0) 55%);
+  color: var(--ewo-cream);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-quiet);
+}
+.ewo-ig-tile:hover .ewo-ig-overlay { opacity: 1; }
+.ewo-ig-icon { font-size: 14px; color: var(--ewo-peach); margin-bottom: 6px; }
+.ewo-ig-caption { font-family: var(--font-hebrew-text); font-size: 13px; line-height: 1.4; text-wrap: balance; }
+
+/* ───────── Support callout ───────── */
+.ewo-support {
+  background: var(--ewo-terracotta-deep);
+  background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: var(--ewo-cream);
+  padding: 80px 32px;
+}
+.ewo-support-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
+.ewo-support-copy { display: flex; flex-direction: column; gap: 14px; }
+.ewo-support-eyebrow { font-family: var(--font-latin-text); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
+.ewo-support-title   { font-family: var(--font-hebrew-display); font-weight: 900; font-size: clamp(36px, 4vw, 56px); margin: 0; line-height: 1.05; }
+.ewo-support-body    { font-family: var(--font-hebrew-text); font-size: 17px; line-height: 1.6; margin: 0; max-width: 580px; opacity: .92; }
+.ewo-support-cta     { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+.ewo-support-mark    { opacity: .9; }
+
+/* ───────── Newsletter ───────── */
+.ewo-news {
+  background: var(--ewo-cream);
+  background-image: var(--paper-texture); background-size: 1400px auto; background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: var(--ewo-navy-deep);
+  padding: 72px 32px;
+}
+.ewo-news-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: center; }
+.ewo-news-copy { display: flex; flex-direction: column; gap: 8px; }
+.ewo-news-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: clamp(28px, 3vw, 40px); margin: 0; line-height: 1.1; }
+.ewo-news-body  { font-family: var(--font-hebrew-text); font-size: 15px; line-height: 1.55; opacity: .8; margin: 0; }
+.ewo-news-form  { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+.ewo-news-form input {
+  font-family: var(--font-hebrew-text); font-size: 15px;
+  padding: 13px 14px;
+  background: var(--ewo-cream-soft);
+  color: var(--ewo-navy-deep);
+  border: 1px solid color-mix(in srgb, var(--ewo-navy) 14%, transparent);
+  border-radius: 0; outline: none;
+  transition: border-color var(--dur-fast) var(--ease-quiet);
+}
+.ewo-news-form input:focus { border-color: var(--ewo-navy); }
+.ewo-news-form input::placeholder { color: color-mix(in srgb, var(--ewo-navy-deep) 50%, transparent); }
+.ewo-news-thanks {
+  display: flex; gap: 18px; align-items: center;
+  padding: 18px 22px; background: var(--ewo-cream-soft);
+  border: 1px solid color-mix(in srgb, var(--ewo-navy) 14%, transparent);
+}
+.ewo-news-thanks-mark { font-size: 28px; color: var(--ewo-peach); }
+.ewo-news-thanks-title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 22px; }
+.ewo-news-thanks-sub   { font-family: var(--font-hebrew-text); font-size: 14px; opacity: .75; }
+
+/* ───────── Footer ───────── */
+.ewo-footer {
+  background: var(--ewo-navy-deep);
+  color: var(--ewo-cream);
+  padding: 72px 32px 32px;
+}
+.ewo-footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 48px; }
+.ewo-footer-mark { padding-top: 6px; }
+.ewo-footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.ewo-footer-h { font-family: var(--font-hebrew-display); font-size: 18px; font-weight: 900; margin: 0 0 14px; color: var(--ewo-cream); }
+.ewo-footer-col a {
+  display: block;
+  font-family: var(--font-hebrew-text);
+  font-size: 14px;
+  color: color-mix(in srgb, var(--ewo-cream) 70%, transparent);
+  text-decoration: none; border: none; padding: 4px 0;
+  transition: color var(--dur-fast) var(--ease-quiet);
+}
+.ewo-footer-col a:hover { color: var(--ewo-cream); }
+.ewo-footer-tail {
+  grid-column: 1 / -1;
+  border-top: 1px solid color-mix(in srgb, var(--ewo-cream) 14%, transparent);
+  padding-top: 24px;
+  margin-top: 36px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.ewo-footer-credit { font-family: var(--font-hebrew-text); font-size: 13px; opacity: .65; margin: 0; max-width: 640px; }
+.ewo-footer-social { display: flex; gap: 12px; }
+.ewo-footer-social a {
+  font-family: var(--font-latin-text); font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ewo-cream); color: var(--ewo-navy-deep);
+  text-decoration: none; border: none;
+  transition: opacity var(--dur-fast) var(--ease-quiet);
+}
+.ewo-footer-social a:hover { opacity: .78; }
+
+/* ───────── Responsive ───────── */
+@media (max-width: 960px) {
+  .ewo-nav { display: none; }
+  .ewo-hero-stage     { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .ewo-hero-portrait   { max-height: 560px; }
+  .ewo-featured-inner  { grid-template-columns: 1fr; gap: 40px; }
+  .ewo-season-grid     { grid-template-columns: 1fr; }
+  .ewo-vidreel-grid    { grid-template-columns: 1fr 1fr; }
+  .ewo-ig-grid         { grid-template-columns: repeat(2, 1fr); }
+  .ewo-support-inner   { grid-template-columns: 1fr; text-align: center; }
+  .ewo-support-mark    { display: none; }
+  .ewo-news-inner      { grid-template-columns: 1fr; }
+  .ewo-news-form       { grid-template-columns: 1fr 1fr; }
+  .ewo-footer-inner    { grid-template-columns: 1fr; }
+  .ewo-footer-cols     { grid-template-columns: 1fr 1fr; }
+  .ewo-concert-card    { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .ewo-vidreel-grid { grid-template-columns: 1fr; }
+  .ewo-news-form    { grid-template-columns: 1fr; }
+  .ewo-footer-cols  { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,45 @@
+<!doctype html><html lang="he" dir="rtl"><head>
+<meta charset="utf-8">
+<title>Concert card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  .concert-card {
+    background: var(--ewo-cream);
+    background-image: var(--paper-noise);
+    background-blend-mode: multiply;
+    border-radius: 12px;
+    padding: 22px 24px;
+    color: var(--ewo-navy-deep);
+    box-shadow: var(--shadow-paper);
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex: 1;
+  }
+  .concert-card .date-stack { text-align:center; line-height:1; }
+  .concert-card .date-stack .day { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 40px; color: var(--ewo-terracotta-deep); }
+  .concert-card .date-stack .mo { font-family: var(--font-latin-text); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity:.7; margin-top:4px; }
+  .concert-card .title { font-family: var(--font-hebrew-display); font-weight: 900; font-size: 22px; line-height: 1.1; margin: 0; }
+  .concert-card .meta  { font-family: var(--font-hebrew-text); font-size: 13px; opacity: .7; margin-top: 4px; }
+  .concert-card .vrule { width: 1px; height: 56px; background: color-mix(in srgb, var(--ewo-navy) 20%, transparent); }
+</style>
+</head><body>
+<div class="card">
+  <div class="col" style="gap:6px; direction:ltr;">
+    <div class="label">Concert card · the most-used composition</div>
+  </div>
+  <div class="concert-card">
+    <div class="date-stack">
+      <div class="day">14</div>
+      <div class="mo">נוב<br>2026</div>
+    </div>
+    <div class="vrule"></div>
+    <div style="flex:1;">
+      <h3 class="title">בחזרה אל "שוטי הנבואה"</h3>
+      <div class="meta">אברהם טל · היכל התרבות, ת"א · 21:00</div>
+    </div>
+    <button style="font-family:var(--font-hebrew-text); font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px; background:var(--ewo-navy-deep); color:var(--ewo-cream); border:none; cursor:pointer;">כרטיסים</button>
+  </div>
+</div>
+</body></html>

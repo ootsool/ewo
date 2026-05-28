@@ -1,0 +1,33 @@
+<!doctype html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<title>Paper texture</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  .swatch-tex {
+    flex: 1;
+    height: 130px;
+    box-shadow: var(--shadow-paper);
+    background-blend-mode: multiply;
+    background-image: var(--paper-texture);
+    background-size: 1400px auto;
+    background-repeat: repeat;
+    display:flex; align-items:flex-end; padding:10px;
+    font-family: 'JetBrains Mono', monospace; font-size:11px;
+  }
+</style>
+</head><body>
+<div class="card">
+  <div class="col" style="gap:6px;">
+    <div class="label">Paper texture · --paper-texture</div>
+    <div style="font-family:var(--font-latin-text); font-size:13px; line-height:1.45; color:var(--ewo-cream); opacity:.92;">
+      Real scanned comic-paper stock, multiplied over every brand surface. Replaces the earlier inline SVG noise. Falls back to <code style="font-family:'JetBrains Mono',monospace; font-size:11px;">--paper-noise</code> if the JPG can&rsquo;t load.
+    </div>
+  </div>
+  <div class="row" style="gap:12px;">
+    <div class="swatch-tex" style="background-color:#C56351; color:var(--ewo-cream);">terracotta + paper</div>
+    <div class="swatch-tex" style="background-color:#F2F0E8; color:var(--ewo-navy);">cream + paper</div>
+    <div class="swatch-tex" style="background-color:#2E5588; color:var(--ewo-cream);">navy + paper</div>
+  </div>
+</div>
+</body></html>

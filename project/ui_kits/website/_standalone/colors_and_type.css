@@ -1,0 +1,211 @@
+/*
+ * Jerusalem East & West Orchestra — Design Tokens
+ * תזמורת ירושלים מזרח ומערב
+ *
+ * A multicultural orchestra brand. The visual identity blends Eastern and
+ * Western motifs the way the music does: a warm terracotta paper field,
+ * a deep contemplative navy, white wing-like illustrations, and a
+ * dotted-line decoration vocabulary borrowed from Eastern manuscripts.
+ *
+ * Sampled from the 2026/2027 season concert posters (EWO26-*.jpg).
+ */
+
+@font-face {
+  font-family: "Ezer Franzisca";
+  src: url("../../../fonts/EzerFranzisca-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ezer Franzisca";
+  src: url("../../../fonts/EzerFranzisca-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Editor Sans PRO — the brand BODY/UI face. Hebrew + Latin sans-serif. */
+@font-face {
+  font-family: "Editor Sans";
+  src: url("../../../fonts/EditorSans_PRO-Normal.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Editor Sans";
+  src: url("../../../fonts/EditorSans_PRO-NormalItalic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Editor Sans";
+  src: url("../../../fonts/EditorSans_PRO-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Editor Sans";
+  src: url("../../../fonts/EditorSans_PRO-BoldItalic.otf") format("opentype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* Cormorant Garamond stands in as the Latin display partner until the
+ * brand's official Latin display face is supplied. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ───────── Brand palette ───────── */
+  /* Terracotta — the brand field. Always shown with paper grain over it. */
+  --ewo-terracotta:        #C56351;  /* canonical brand red */
+  --ewo-terracotta-deep:   #B05745;  /* shadow side / pressed states */
+  --ewo-terracotta-light:  #D27867;  /* hover / soft accent */
+
+  /* Navy — chosen for warmth, not steel. Clearly blue, with chroma.
+   * The brand has no black. Both --ewo-navy and --ewo-navy-deep are
+   * unambiguously blue at full saturation. */
+  --ewo-navy:              #2E5588;  /* primary ink on warm fields, logo fill */
+  --ewo-navy-deep:         #1F3F6A;  /* strongest contrast — still clearly blue */
+  --ewo-navy-soft:         #5D7AA0;  /* secondary ink, captions */
+
+  /* Cream — the "white" of the brand. Never pure #fff. */
+  --ewo-cream:             #F2F0E8;  /* paper / wings illustration */
+  --ewo-cream-soft:        #E8E4D8;  /* recessed panels */
+  --ewo-cream-warm:        #EFE6D2;  /* secondary surface */
+
+  /* Peach / clay — used for the decorative dot rows and circles. */
+  --ewo-peach:             #E1957F;  /* soft coral */
+  --ewo-peach-deep:        #C77860;  /* shaded coral, beads */
+
+  /* Functional */
+  --ewo-ink:               var(--ewo-navy-deep);
+  --ewo-paper:             var(--ewo-cream);
+
+  /* Semantic surfaces */
+  --bg:                    var(--ewo-terracotta);
+  --bg-alt:                var(--ewo-cream);
+  --fg:                    var(--ewo-cream);          /* on terracotta */
+  --fg-on-cream:           var(--ewo-navy-deep);      /* on cream */
+  --fg-muted:              color-mix(in srgb, var(--ewo-cream) 70%, transparent);
+  --accent:                var(--ewo-peach);
+  --rule:                  color-mix(in srgb, var(--ewo-navy) 30%, transparent);
+
+  /* ───────── Type ───────── */
+  --font-hebrew-display:   "Ezer Franzisca", "Frank Ruehl CLM", serif;
+  --font-hebrew-text:      "Editor Sans", system-ui, sans-serif;
+  --font-latin-display:    "Cormorant Garamond", "Ezer Franzisca", serif;
+  --font-latin-text:       "Editor Sans", system-ui, -apple-system, sans-serif;
+
+  /* Type ramp — tuned for poster/print feel. Hebrew prefers tighter
+   * line-height than Latin; we set per-element below. */
+  --fs-display-xl: clamp(64px, 8vw, 120px);
+  --fs-display:    clamp(48px, 5.5vw, 80px);
+  --fs-h1:         clamp(36px, 4vw, 56px);
+  --fs-h2:         clamp(28px, 3vw, 40px);
+  --fs-h3:         clamp(22px, 2.2vw, 28px);
+  --fs-lede:       20px;
+  --fs-body:       17px;
+  --fs-small:      14px;
+  --fs-micro:      12px;
+
+  /* Tracking — Ezer Franzisca has wide proportions; tighten in display. */
+  --tracking-display: -0.01em;
+  --tracking-body:    0em;
+  --tracking-caps:    0.08em;
+
+  /* ───────── Spacing ───────── */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* ───────── Radii ───────── */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --r-circle: 50%;
+
+  /* ───────── Elevation ───────── */
+  /* The brand is almost flat — paper, not glass. Shadows are subtle, warm. */
+  --shadow-paper: 0 1px 0 rgba(44, 46, 53, 0.06), 0 6px 16px rgba(44, 46, 53, 0.12);
+  --shadow-card:  0 2px 4px rgba(44, 46, 53, 0.08), 0 18px 40px rgba(44, 46, 53, 0.18);
+  --shadow-inset: inset 0 0 0 1px color-mix(in srgb, var(--ewo-navy) 12%, transparent);
+
+  /* ───────── Motion ───────── */
+  --ease-quiet:    cubic-bezier(0.32, 0.72, 0.18, 1);
+  --ease-warm:     cubic-bezier(0.5, 0, 0.1, 1);
+  --dur-fast:      140ms;
+  --dur-base:      280ms;
+  --dur-slow:      520ms;
+
+  /* ───────── Paper texture (real photographic scan) ───────── */
+  /* Multiplied over every brand surface to make terracotta + cream read as
+   * printed stock rather than flat digital. paper-texture.jpg is the real
+   * scanned comic paper from the brand library; paper-noise is a lightweight
+   * SVG fallback that ships inline for cards/specimens. */
+  --paper-texture: url("./_assets/paper-texture.jpg");
+  --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.10  0 0 0 0.32 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+
+/* ───────── Semantic elements (component-free defaults) ───────── */
+
+html { direction: rtl; }                 /* Hebrew-first */
+html[lang="en"], html[dir="ltr"] { direction: ltr; }
+
+body {
+  font-family: var(--font-hebrew-text);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--fg);
+  background-color: var(--bg);
+  background-image: var(--paper-texture);
+  background-size: 1400px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-hebrew-display);
+  font-weight: 900;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.05;
+  margin: 0 0 var(--s-4);
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.15; }
+
+.display    { font-family: var(--font-hebrew-display); font-weight: 900; font-size: var(--fs-display);    line-height: 1.02; letter-spacing: var(--tracking-display); }
+.display-xl { font-family: var(--font-hebrew-display); font-weight: 900; font-size: var(--fs-display-xl); line-height: 1.0;  letter-spacing: var(--tracking-display); }
+
+p { margin: 0 0 var(--s-4); text-wrap: pretty; }
+.lede { font-size: var(--fs-lede); line-height: 1.5; }
+.small { font-size: var(--fs-small); }
+.micro { font-size: var(--fs-micro); letter-spacing: var(--tracking-caps); text-transform: uppercase; }
+
+a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: opacity var(--dur-fast) var(--ease-quiet); }
+a:hover { opacity: 0.75; }
+
+/* ───────── Signature decoration ───────── */
+/* The "dotted-line ornament" that appears under titles on every poster.
+ * Diamond beads separated by dots, anchored to a baseline. */
+.ornament-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ewo-navy);
+  opacity: 0.85;
+}
+.ornament-dots::before,
+.ornament-dots::after {
+  content: "·  ·  ·  ◆  ·  ·  ·";
+  letter-spacing: 0.25em;
+  font-size: 0.7em;
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תזמורת ירושלים מזרח ומערב — עונת המנויים 2026/27</title>
+
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="styles.css">
+
+<!-- ext-resource-dependency: images that are referenced as strings inside
+     JSX components rather than as static HTML img src attributes. The
+     standalone bundler replaces window.__resources[id] with blob URLs at
+     runtime. -->
+<meta name="ext-resource-dependency" content="./_assets/logo-light.png"          data-resource-id="logoLight" />
+<meta name="ext-resource-dependency" content="./_assets/logo-dark.png"           data-resource-id="logoDark" />
+<meta name="ext-resource-dependency" content="./_assets/wings-composition.png"   data-resource-id="wingsComposition" />
+<meta name="ext-resource-dependency" content="./_assets/portrait-avraham-tal.png" data-resource-id="portraitAvrahamTal" />
+<meta name="ext-resource-dependency" content="./_assets/poster-avraham-tal.jpg"  data-resource-id="posterAvrahamTal" />
+<meta name="ext-resource-dependency" content="./_assets/poster-itzik-kala.jpg"   data-resource-id="posterItzikKala" />
+<meta name="ext-resource-dependency" content="./_assets/poster-pop-icon.jpg"     data-resource-id="posterPopIcon" />
+<meta name="ext-resource-dependency" content="./_assets/poster-hiluma.jpg"       data-resource-id="posterHiluma" />
+<meta name="ext-resource-dependency" content="./_assets/postcard-season.jpg"     data-resource-id="postcardSeason" />
+
+<style>
+  body { margin: 0; }
+  [data-screen-label] { scroll-margin-top: 88px; }
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#C5563E">
+  <!-- Simplified splash: cream wings silhouette + navy disc on terracotta,
+       the brand's anchoring composition. -->
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#C5563E"/>
+    <circle cx="600" cy="380" r="180" fill="#0F2440"/>
+    <g fill="#F4ECDD">
+      <ellipse cx="380" cy="430" rx="170" ry="50" transform="rotate(-12 380 430)"/>
+      <ellipse cx="820" cy="430" rx="170" ry="50" transform="rotate(12 820 430)"/>
+      <ellipse cx="320" cy="500" rx="150" ry="40" transform="rotate(-18 320 500)"/>
+      <ellipse cx="880" cy="500" rx="150" ry="40" transform="rotate(18 880 500)"/>
+    </g>
+    <g fill="#F2A07B">
+      <circle cx="280" cy="430" r="14"/>
+      <circle cx="340" cy="460" r="14"/>
+      <circle cx="920" cy="430" r="14"/>
+      <circle cx="860" cy="460" r="14"/>
+    </g>
+    <g fill="#0F2440">
+      <polygon points="540,620 580,600 540,580 500,600"/>
+      <polygon points="620,620 660,600 620,580 580,600"/>
+      <polygon points="700,620 740,600 700,580 660,600"/>
+    </g>
+  </svg>
+</template>
+</head>
+<body data-screen-label="Homepage">
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="SeasonGrid.jsx"></script>
+<script type="text/babel" src="ConcertCard.jsx"></script>
+<script type="text/babel" src="Sections.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+
+<script type="text/babel">
+  const About = () => (
+    <section id="about" className="ewo-about" data-screen-label="04 About">
+      <div className="ewo-about-inner">
+        <span className="ewo-about-eyebrow">אודות התזמורת</span>
+        <p className="ewo-about-quote">
+          תזמורת רב־תרבותית, בה חברים מוזיקאים משלוש הדתות, מכל רחבי הארץ ומכל המגזרים
+          המרכיבים את החברה הישראלית — שפה מוזיקלית אחת, קוהרנטית ואורגנית, המפגישה
+          מקאמים ומקצבים מארצות ערב והאסלאם עם הרמוניה ואסתטיקה מערביות.
+        </p>
+        <div className="ewo-about-source">
+          ספטמבר 2022 · נבחרה כתזמורת מובילה בישראל מטעם משרד התרבות והספורט
+        </div>
+      </div>
+    </section>
+  );
+
+  const FEATURED = {
+    id:    "kochav-hamizrach",
+    title: "כוכב המזרח · זהבה בן שרה אום כלתום",
+    artist:"זהבה בן · אורחת: נור דרוויש",
+    date:  { d: "20", m: "מאי", y: "2026" },
+    venue: "סדרה ארצית · מאי-יוני",
+    img:   window.__resources.posterPopIcon,
+    body:  "בראשית השנה שעברה צויין בעולם יובל ללכתה של אום כלתום, מי שכונתה כוכב המזרח, אחד הסמלים העל־זמניים של המוזיקה הערבית. סדרת קונצרטים זו היא הצדעה לפורצת הדרך — את הקלאסיקות שנכתבו עבורה, את השירים שהפכו להמנונים, ואת היצירות המופלאות שמזוהות איתה תבצע עם התזמורת הדיווה המקומית — זהבה בן.",
+  };
+
+  const App = () => (
+    <>
+      <Header activeSeason="2026/27" />
+      <Hero />
+      <SeasonGrid />
+      <FeaturedConcert concert={FEATURED} />
+      <About />
+      <ConcertList items={POSTERS} />
+      <VideoReel />
+      <DigitalCallout />
+      <InstagramFeed />
+      <SupportCallout />
+      <Newsletter />
+      <Footer />
+    </>
+  );
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>
